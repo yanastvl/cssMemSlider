@@ -9,11 +9,15 @@
 body {
     display: flex;
     flex-direction: column;
+
     height: 100vh;
+
     background-image: url(img/repeated-square-dark.png);
-    color: white;
-    font-family: 'Yeseva One', cursive;
+
+
+    font-family: 'Yeseva One', cursive, 'Montserrat', sans-serif;
     font-size: 1rem;
+    color: white;
 }
 
 a {
@@ -21,118 +25,35 @@ a {
     color: white;
 }
 
-@keyframes textVisible {
-    0% {
-        transform: translateX(200px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes imgVisible {
-    0% {
-        transform: translate(-100px, -500px) rotate(-20deg);
-    }
-
-    50% {
-        transform: translate(-100px, 0) rotate(-20deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0);
-    }
-}
-
 .header {
     padding: 20px 0;
-    background-color: #2c3036;
     display: flex;
     justify-content: center;
+
+    background-color: transparent;
 }
 
 .header__title {
     font-size: 40px;
+
     text-align: center;
-    
 }
 
 .main {
+    padding: 20px 0;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
-    padding: 20px 0;
 }
 
 .wrapper {
+    margin: 0 auto;
+
     width: 100%;
     max-width: 55rem;
-    margin: 0 auto;
-}
-
-.main .wrapper {
-    display: grid;
-    grid-template-areas:
-        "slider slider slider slider slider slider"
-        "inscription btn1 btn2 btn3 btn4 btn5";
-    grid-template-columns: 10fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px 0;
-}
-
-.slider {
-    grid-area: slider;
-    width: 100%;
-    height: 650px;
-    border: 15px inset #747980;
-    border-radius: 10px;
-    background-color: #fff;
-    overflow: hidden;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-.slider__img {
-    display: none;
-    animation: imgVisible 1s linear;
-}
-
-.inscription {
-    grid-area: inscription;
-    align-self: center;
-}
-
-.mem__quote {
-    display: none;
-    margin: 0;
-    font-size: 1.2rem;
-    animation: textVisible 0.5s ease-out;
-}
-
-.footer {
-    background-color: #2c3036;
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
-}
-
-.footer__link:hover {
-    color: #999da3;
-    transition: 0.4s;
-}
-
-.footer__text {
-    text-align: left;
-    margin-top: 5px;
-    font-size: 30px;
-    font-weight: 400;
 }
 
 input {
@@ -159,54 +80,68 @@ input {
     grid-area: btn5;
 }
 
+.label6 {
+    grid-area: btn6;
+}
+
 
 .btn1:checked ~ .slider .slider__img:nth-child(1) {
-    display: block !important;
+    display: block;
 }
 
 .btn1:checked ~ .inscription .mem__quote:nth-child(1) {
-    display: block !important;
+    display: block;
 }
 
 .btn2:checked ~ .slider .slider__img:nth-child(2) {
-    display: block !important;
+    display: block;
 }
 
 .btn2:checked ~ .inscription .mem__quote:nth-child(2) {
-    display: block !important;
+    display: block;
 }
 
 .btn3:checked ~ .slider .slider__img:nth-child(3) {
-    display: block !important;
+    display: block;
 }
 
 .btn3:checked ~ .inscription .mem__quote:nth-child(3) {
-    display: block !important;
+    display: block;
 }
 
 .btn4:checked ~ .slider .slider__img:nth-child(4) {
-    display: block !important;
+    display: block;
 }
 
 .btn4:checked ~ .inscription .mem__quote:nth-child(4) {
-    display: block !important;
+    display: block;
 }
 
 .btn5:checked ~ .slider .slider__img:nth-child(5) {
-    display: block !important;
+    display: block;
 }
 
 .btn5:checked ~ .inscription .mem__quote:nth-child(5) {
-    display: block !important;
+    display: block;
 }
+
+.btn6:checked ~ .slider .slider__img:nth-child(6) {
+    display: block;
+}
+
+.btn6:checked ~ .inscription .mem__quote:nth-child(6) {
+    display: block;
+}
+
 
 .label {
     display: flex;
+
     width: 50px;
     height: 50px;
-    max-width: 100px;
-    max-height: 100px;
+
     border-radius: 50%;
+
     background-color: transparent;
     cursor: pointer;
 }
@@ -224,14 +159,105 @@ input:checked + label .click {
 }
 
 .click {
+    margin: auto;
     display: block;
     width: 50%;
     height: 50%;
-    margin: auto;
+
+
     border: 2px solid white;
     border-radius: 50%;
     background-color: transparent;
     transition: background-color 0.4s;
 }
 
+.main .wrapper {
+    display: grid;
+    grid-template-areas:
+        "slider slider slider slider slider slider slider"
+        "inscription btn1 btn2 btn3 btn4 btn5 btn6";
+    grid-template-columns: 10fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px 0;
+}
 
+.slider {
+    grid-area: slider;
+
+    width: 100%;
+    height: 650px;
+
+    border: 15px inset #747980;
+    border-radius: 30px;
+
+    background-color: #fff;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.slider__img {
+    display: none;
+    animation: ImgAnimation 0.5s linear;
+}
+
+.inscription {
+    grid-area: inscription;
+
+    align-self: center;
+}
+
+.mem__quote {
+    display: none;
+
+    font-size: 1.2rem;
+    animation: quoteAnimation 0.5s ease-out;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+
+    background-color: transparent;
+}
+
+.footer__link:hover {
+    color: #999da3;
+    transition: 0.4s;
+}
+
+.footer__text {
+    text-align: left;
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+@keyframes quoteAnimation {
+    0% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes ImgAnimation {
+    0% {
+        transform: translateX(400px);
+    }
+
+    50% {
+        transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
